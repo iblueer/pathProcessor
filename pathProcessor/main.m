@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MAEMOPathProcessor.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        NSString *testStr = @"./a.md";
+        MAEMOPathProcessor *pathpro = [[MAEMOPathProcessor alloc] init];
+        [pathpro setAppPathDefaultly];
+        [pathpro getTargetPathString:testStr];
+        NSLog(@"targetStr is %@", pathpro.targetPath);
     }
     return 0;
 }

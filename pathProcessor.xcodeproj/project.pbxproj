@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F392683200354EA00F46038 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F392682200354EA00F46038 /* main.m */; };
+		2F39268B2003550B00F46038 /* MAEMOPathProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F3926892003550A00F46038 /* MAEMOPathProcessor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		2F39267F200354EA00F46038 /* pathProcessor */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pathProcessor; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F392682200354EA00F46038 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2F3926892003550A00F46038 /* MAEMOPathProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAEMOPathProcessor.m; sourceTree = "<group>"; };
+		2F39268A2003550B00F46038 /* MAEMOPathProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAEMOPathProcessor.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				2F392682200354EA00F46038 /* main.m */,
+				2F39268A2003550B00F46038 /* MAEMOPathProcessor.h */,
+				2F3926892003550A00F46038 /* MAEMOPathProcessor.m */,
 			);
 			path = pathProcessor;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F392683200354EA00F46038 /* main.m in Sources */,
+				2F39268B2003550B00F46038 /* MAEMOPathProcessor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
