@@ -13,21 +13,26 @@
 - (void)setAppPathDefaultly {
     // 获得当前工作目录，替代相对目录
     self.appPath =[[NSBundle mainBundle] bundlePath];
-//    NSLog(@"appPath: %@",self.appPath);
+    //    NSLog(@"appPath: %@",self.appPath);
 }
 
 - (void)getTargetPathString:(NSString *)inputString {
     // 判断是否为相对目录
     if ([inputString containsString:@"../"]) {
-        NSLog(@"🔺相对目录：预期文件在父目录下");
+        NSLog(@"⭕️相对目录：预期文件在父目录下");
         [self getFatherPathString:inputString];
+        self.success = TRUE;
     } else if ([inputString containsString:@"./"]) {
-        NSLog(@"🔺相对目录：预期文件在当前目录下");
+        NSLog(@"⭕️相对目录：预期文件在当前目录下");
         [self getThisPathString:inputString];
-        
-    } else {
-        NSLog(@"🔺绝对目录");
+        self.success = TRUE;
+    } else if([[inputString substringToIndex:0] isEqualToString:@"/"]){
+        NSLog(@"⭕️绝对目录");
         self.targetPath = inputString;
+        self.success = TRUE;
+    } else {
+        NSLog(@"❌错误的目录形式");
+        self.success = FALSE;
     }
 }
 
@@ -36,7 +41,7 @@
     if (contains) //表示它存在
     {
         NSString *trimmedString = [inputString stringByReplacingOccurrencesOfString:@"./" withString:@""];
-        NSLog(@"trimmedString is %@", trimmedString);
+        //        NSLog(@"trimmedString is %@", trimmedString);
         
         // 设定文件名
         self.fileName = trimmedString;
@@ -46,7 +51,7 @@
         [path appendString:self.appPath];
         [path appendString:@"/"];
         [path appendString:self.fileName];
-        NSLog(@"path is %@",path);
+        //        NSLog(@"path is %@",path);
         
         // 传给属性
         self.targetPath = path;
@@ -58,13 +63,13 @@
 - (void)getFatherPathString:(NSString *)inputString {
     
     BOOL contains = [inputString containsString:@"../"];
-
+    
     if (contains) //表示它存在
     {
         NSString *trimmedString = [self removeFileCover:inputString];
         // 获取最后的文件名
         self.fileName = trimmedString;
-        NSLog(@"fileName is %@", self.fileName);
+        //        NSLog(@"fileName is %@", self.fileName);
         // 递归
         [self getFatherPathString:trimmedString];
     } else { // 为什么这里要用else，我也不是很懂，反正能避免递归过程中产生重复运算
@@ -73,7 +78,7 @@
         for (int i = 0; i < self.lamda; i++) {
             formerStr = [self removePathCover:formerStr];
         }
-        NSLog(@"formerStr is %@", formerStr);
+        //        NSLog(@"formerStr is %@", formerStr);
         _lamda = 0;
         
         // 开始嫁接
@@ -81,7 +86,7 @@
         [path appendString:formerStr];
         [path appendString:@"/"];
         [path appendString:self.fileName];
-        NSLog(@"path is %@",path);
+        //        NSLog(@"path is %@",path);
         
         // 传给属性
         self.targetPath = path;
@@ -92,7 +97,8 @@
     //查找@””的位置 返回值是一个 NSRange 类型的值
     NSRange range = [inputString rangeOfString:@"../"];
     NSString *laterStr = [inputString substringFromIndex:range.location+range.length];
-    NSLog(@"laterStr is %@", laterStr);
+    //    NSLog(@"laterStr is %@", laterStr);
+    
     // 计算扒皮层数
     _lamda++;
     // 扒一层皮
@@ -112,3 +118,5 @@
 }
 
 @end
+
+

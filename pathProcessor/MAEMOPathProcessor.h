@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface MAEMOPathProcessor : NSObject
-
+@property (nonatomic) BOOL success; //是否提取成功
 @property (nonatomic) NSUInteger lamda; // 扒皮的层数
 @property (nonatomic) NSString *appPath; // 程序所在目录
 @property (nonatomic) NSString *fileName; //文件名
@@ -23,3 +23,5 @@
 - (NSString *)removePathCover:(NSString *)inputString;
 
 @end
+
+
