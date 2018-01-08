@@ -96,7 +96,7 @@
     // 计算扒皮层数
     _lamda++;
     // 扒一层皮
-    return [inputString stringByReplacingOccurrencesOfString:@"../" withString:@""];
+    return laterStr;
 }
 
 // 这个方法处理appPath，给他后面扒皮
