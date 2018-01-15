@@ -11,7 +11,7 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        NSString *testStr = @"./a.md";
+        NSString *testStr = @"/tmp/a.md";
         MAEMOPathProcessor *pathpro = [[MAEMOPathProcessor alloc] init];
         [pathpro setAppPathDefaultly];
         [pathpro getTargetPathString:testStr];
